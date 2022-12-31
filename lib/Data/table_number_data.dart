@@ -1,8 +1,20 @@
 
+import 'package:flutter_pos_app/Data/TableforData.dart';
 import 'package:flutter_pos_app/Models/table.dart';
 
 class TableNumberData{
-  static List<int> tableNumberData = [
-    1,2,3,4,5,6,7,8,9,10
+  static List<TableforData> tableNumberData = [
+    TableforData(tableNumber: 1, isOccupied: false,),
+   TableforData(tableNumber: 2, isOccupied: false,),
+   TableforData(tableNumber: 3, isOccupied: false,),
+   TableforData(tableNumber: 4, isOccupied: false,),
+   TableforData(tableNumber: 5, isOccupied: false,),
+   TableforData(tableNumber: 6, isOccupied: false,),
+   TableforData(tableNumber: 7, isOccupied: false,),
+   TableforData(tableNumber: 8, isOccupied: false,),
+   TableforData(tableNumber: 9, isOccupied: false,),
+   TableforData(tableNumber: 10, isOccupied: false,),
+
+   
   ];
 }

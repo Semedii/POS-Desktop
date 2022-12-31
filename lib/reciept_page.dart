@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_pos_app/Data/TableforData.dart';
 import 'package:flutter_pos_app/Data/reciept_data.dart';
 import 'package:flutter_pos_app/Models/top_title.dart';
 import 'Data/table_number_data.dart';
@@ -14,7 +15,7 @@ class RecieptPage extends StatefulWidget {
 
 class _RecieptPageState extends State<RecieptPage> {
   List<Reciept> myList = RecieptData.recieptData;
-  List<int> myTableList = TableNumberData.tableNumberData;
+  List<TableforData> myTableList = TableNumberData.tableNumberData;
   
    int activeTable = 1;
 
@@ -24,9 +25,10 @@ class _RecieptPageState extends State<RecieptPage> {
      myList = RecieptData.recieptData.where((element) => element.tablenumber==tablenumber).toList();
      activeTable = tablenumber;
   });
-    
-
-    
+  if(myList.isNotEmpty){
+    TableforData table = myTableList.where((element) => element.tableNumber ==tablenumber).first;
+    table.isOccupied = true;
+  }
    }
     double _getSubTotal(){
       double subtotal = 0;
@@ -116,12 +118,11 @@ class _RecieptPageState extends State<RecieptPage> {
               child: Align(
                 alignment: Alignment.bottomCenter,
                 child: Container(
-                 
                  height: 150,
                   child: GridView.count(
                    crossAxisCount: 3,
                    childAspectRatio: (1.75 / 1),
-                   children: myTableList.map((e) => components.Table(tableNumber: e, borderColor: e==activeTable? Colors.deepOrangeAccent : Colors.black,setTable: _setTable,)).toList()
+                   children: myTableList.map((e) => components.Table(tableNumber: e.tableNumber, isOccupied: e.isOccupied, borderColor: e==activeTable? Colors.deepOrangeAccent : Colors.black,setTable: _setTable,)).toList()
 
                              ),
                 ),
