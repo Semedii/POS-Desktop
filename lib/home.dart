@@ -2,12 +2,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter_pos_app/beverages.dart';
-import 'package:flutter_pos_app/breakfast.dart';
-import 'package:flutter_pos_app/desserts.dart';
-import 'package:flutter_pos_app/main_dish.dart';
-import 'package:flutter_pos_app/reciept.dart';
-import 'package:flutter_pos_app/top_title.dart';
+import 'package:flutter_pos_app/Dishes/beverages.dart';
+import 'package:flutter_pos_app/Dishes/breakfast.dart';
+import 'package:flutter_pos_app/Dishes/desserts.dart';
+import 'package:flutter_pos_app/Models/main_dish.dart';
+import 'package:flutter_pos_app/Models/reciept.dart';
+import 'package:flutter_pos_app/Models/top_title.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
