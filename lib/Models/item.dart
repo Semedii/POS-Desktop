@@ -52,6 +52,7 @@ class Item extends StatelessWidget {
                   fontSize: 20,
                 ),
               ),
+              IconButton(onPressed: (){}, icon: Icon(Icons.add_circle_outline_sharp, color: Colors.white,))
             ],
           ),
         ],

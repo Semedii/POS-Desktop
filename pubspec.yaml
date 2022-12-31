@@ -61,6 +61,7 @@ flutter:
     - assets/maindish/
     - assets/beverages/
     - assets/desserts/
+    - assets/1.png
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
