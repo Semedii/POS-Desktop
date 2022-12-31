@@ -6,7 +6,7 @@ import 'package:flutter_pos_app/Dishes/beverages.dart';
 import 'package:flutter_pos_app/Dishes/breakfast.dart';
 import 'package:flutter_pos_app/Dishes/desserts.dart';
 import 'package:flutter_pos_app/Models/main_dish.dart';
-import 'package:flutter_pos_app/Models/reciept.dart';
+import 'package:flutter_pos_app/reciept_page.dart';
 import 'package:flutter_pos_app/Models/top_title.dart';
 
 class HomePage extends StatefulWidget {
@@ -61,7 +61,7 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
           Expanded(flex: 1, child: Container()),
-          Reciept()
+          RecieptPage()
         ],
       ),
     );
