@@ -65,7 +65,7 @@ class _RecieptPageState extends State<RecieptPage> {
                  child: Container(
                   height: 120,
                   decoration: BoxDecoration(
-                    color: Colors.red,
+                    color: Color.fromARGB(255, 161, 156, 156),
                     borderRadius: BorderRadius.circular(20),
                   ),
                       child: Padding(
@@ -88,7 +88,7 @@ class _RecieptPageState extends State<RecieptPage> {
                               children: [
                                 Text("Tax (10%)"),
                                   SizedBox(width: 200,),
-                                Text("\$${23}"),
+                                Text("\$${(0.1*_getSubTotal()).toStringAsFixed(2)}"),
                               ],
                             ),
                            
@@ -96,7 +96,7 @@ class _RecieptPageState extends State<RecieptPage> {
                               children: [
                                 Text("Total"),
                                   SizedBox(width: 230,),
-                                Text("\$${23}"),
+                                Text("\$${(0.1*_getSubTotal()+_getSubTotal()).toStringAsFixed(2)}"),
                               ],
                             ),
                             ElevatedButton(onPressed: (){}, child: Row(
@@ -122,7 +122,7 @@ class _RecieptPageState extends State<RecieptPage> {
                   child: GridView.count(
                    crossAxisCount: 3,
                    childAspectRatio: (1.75 / 1),
-                   children: myTableList.map((e) => components.Table(tableNumber: e.tableNumber, isOccupied: e.isOccupied, borderColor: e==activeTable? Colors.deepOrangeAccent : Colors.black,setTable: _setTable,)).toList()
+                   children: myTableList.map((e) => components.Table(tableNumber: e.tableNumber, isOccupied: e.isOccupied, borderColor: e.tableNumber==activeTable? Colors.deepOrangeAccent : Colors.black,setTable: _setTable,)).toList()
 
                              ),
                 ),
