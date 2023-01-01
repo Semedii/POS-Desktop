@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_pos_app/Data/TableforData.dart';
 import 'package:flutter_pos_app/Data/reciept_data.dart';
+import 'package:flutter_pos_app/Data/sale_history_data.dart';
+import 'package:flutter_pos_app/Models/history.dart';
 import 'package:flutter_pos_app/Models/top_title.dart';
 import 'Data/table_number_data.dart';
 import 'Models/components.dart' as components;
@@ -47,8 +49,13 @@ class _RecieptPageState extends State<RecieptPage> {
         .where((element) => element.tableNumber == tableNumber)
         .first
         .isOccupied = false;
-    RecieptData.recieptData
-        .removeWhere((element) => element.tablenumber == tableNumber);
+    List<Reciept> paidList =  RecieptData.recieptData.where((element) => element.tablenumber == tableNumber).toList();
+    
+    for(int i=0; i<paidList.length; i++){
+      History newSale = History(productName: paidList[i].dishName, total: _getSubTotal(), date: DateTime.now());
+      SaleHistoryData.saleHistoryData.add(newSale);
+      RecieptData.recieptData.remove(paidList[i]);
+    }
   }
 
   @override

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_pos_app/history_screen.dart';
 import 'package:flutter_pos_app/home.dart';
 
 void main() {
@@ -36,7 +37,7 @@ class _MainPageState extends State<MainPage> {
       case 'Menu':
         return const HomePage();
       case 'History':
-        return Container();
+        return HistoryScreen();
       case 'Promos':
         return Container();
       case 'Settings':
