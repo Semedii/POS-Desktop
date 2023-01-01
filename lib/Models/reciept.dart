@@ -18,9 +18,9 @@ class Reciept extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text("1"),
-              Container(child: Text(dishName)),
-              Text("\$${price}")
+              Text("1", style: TextStyle(color: Colors.deepOrangeAccent),),
+              Container(child: Text(dishName , style: TextStyle(color: Colors.deepOrangeAccent))),
+              Text("\$${price}", style: TextStyle(color: Colors.deepOrangeAccent),),
             ],
           )
         ],

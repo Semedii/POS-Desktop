@@ -63,7 +63,11 @@ class _RecieptPageState extends State<RecieptPage> {
     return Expanded(
       flex: 5,
       child: Container(
-          color: Color.fromARGB(255, 112, 111, 111),
+        decoration: BoxDecoration(
+          color: Color.fromARGB(255, 48, 47, 47),
+          borderRadius: BorderRadius.circular(20)
+        ),
+          
           child: Stack(children: [
             Column(
               children: [
@@ -98,7 +102,7 @@ class _RecieptPageState extends State<RecieptPage> {
                         children: [
                           Text("Sub Total"),
                           SizedBox(
-                            width: 200,
+                            width: 180,
                           ),
                           Text("\$${_getSubTotal()}"),
                         ],
@@ -107,7 +111,7 @@ class _RecieptPageState extends State<RecieptPage> {
                         children: [
                           Text("Tax (10%)"),
                           SizedBox(
-                            width: 200,
+                            width: 180,
                           ),
                           Text(
                               "\$${(0.1 * _getSubTotal()).toStringAsFixed(2)}"),
@@ -117,7 +121,7 @@ class _RecieptPageState extends State<RecieptPage> {
                         children: [
                           Text("Total"),
                           SizedBox(
-                            width: 230,
+                            width: 210,
                           ),
                           Text(
                               "\$${(0.1 * _getSubTotal() + _getSubTotal()).toStringAsFixed(2)}"),
