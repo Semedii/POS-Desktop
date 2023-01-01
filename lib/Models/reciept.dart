@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
 class Reciept extends StatelessWidget {
-   Reciept({
-    required this.tablenumber,
-    required this.dishName,
-    required this.price,
-    super.key});
+  Reciept(
+      {required this.tablenumber,
+      required this.dishName,
+      required this.price,
+      super.key});
   final int tablenumber;
   final String dishName;
   final double price;

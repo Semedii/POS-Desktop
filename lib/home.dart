@@ -51,10 +51,10 @@ class _HomePageState extends State<HomePage> {
             flex: 14,
             child: Column(
               children: [
-                  TopTitle(
-                    title: 'Semedy Restaurant',
-                    subTitle: '${DateTime.now()}',
-                  ),
+                TopTitle(
+                  title: 'Semedy Restaurant',
+                  subTitle: '${DateTime.now()}',
+                ),
                 _getMenuType(),
                 _pageView()
               ],
@@ -66,10 +66,6 @@ class _HomePageState extends State<HomePage> {
       ),
     );
   }
-
-  
-
- 
 
   Widget _itemTab(
       {required String icon, required String title, required bool isActive}) {
@@ -107,13 +103,12 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-
-bool isactive(String title){
-  if(activeMenu.compareTo(title)==0){
-    return true;
+  bool isactive(String title) {
+    if (activeMenu.compareTo(title) == 0) {
+      return true;
+    }
+    return false;
   }
-  return false;
-}
 
   Widget _getMenuType() {
     return Container(

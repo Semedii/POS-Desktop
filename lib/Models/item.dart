@@ -3,11 +3,11 @@ import 'package:flutter_pos_app/Data/reciept_data.dart';
 import 'package:flutter_pos_app/Models/reciept.dart';
 
 class Item extends StatefulWidget {
-   Item({
-    required this.image,
-    required this.title,
-    required this.price,
-    super.key});
+  Item(
+      {required this.image,
+      required this.title,
+      required this.price,
+      super.key});
 
   final String image;
   final String title;
@@ -20,7 +20,6 @@ class Item extends StatefulWidget {
 class _ItemState extends State<Item> {
   @override
   Widget build(BuildContext context) {
-    
     return Container(
       margin: const EdgeInsets.only(right: 20, bottom: 20),
       padding: const EdgeInsets.all(12),
@@ -61,9 +60,14 @@ class _ItemState extends State<Item> {
                   fontSize: 20,
                 ),
               ),
-              IconButton(onPressed: (){
-                _getDialog(context);
-              }, icon: Icon(Icons.add_circle_outline_sharp, color: Colors.white,))
+              IconButton(
+                  onPressed: () {
+                    _getDialog(context);
+                  },
+                  icon: Icon(
+                    Icons.add_circle_outline_sharp,
+                    color: Colors.white,
+                  ))
             ],
           ),
         ],
@@ -71,36 +75,40 @@ class _ItemState extends State<Item> {
     );
   }
 
-
- _getDialog(BuildContext context,){
-  return showDialog(
-    context: context,
-    builder: (BuildContext context) {
-      return SimpleDialog(
-        title: Text('Please enter the table number'),
-        children: <Widget>[
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: TextField(
-              onSubmitted: (value) {
-                setState(() {
-                  widget.tablenumber = int.parse(value);
-                });
-                // store the entered value in a variable
-              },
+  _getDialog(
+    BuildContext context,
+  ) {
+    return showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return SimpleDialog(
+          title: Text('Please enter the table number'),
+          children: <Widget>[
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: TextField(
+                onSubmitted: (value) {
+                  setState(() {
+                    widget.tablenumber = int.parse(value);
+                  });
+                  // store the entered value in a variable
+                },
+              ),
             ),
-          ),
-          ElevatedButton(
-            child: Text('Add'),
-            onPressed: () {
-              // use the entered value
-              RecieptData.recieptData.add(Reciept(tablenumber: widget.tablenumber, dishName: widget.title, price: widget.price));
-              Navigator.of(context).pop();
-            },
-          )
-        ],
-      );
-    },
-  );
-}
+            ElevatedButton(
+              child: Text('Add'),
+              onPressed: () {
+                // use the entered value
+                RecieptData.recieptData.add(Reciept(
+                    tablenumber: widget.tablenumber,
+                    dishName: widget.title,
+                    price: widget.price));
+                Navigator.of(context).pop();
+              },
+            )
+          ],
+        );
+      },
+    );
+  }
 }

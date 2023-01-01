@@ -12,9 +12,7 @@ class MainDish extends StatelessWidget {
       child: GridView.count(
         crossAxisCount: 4,
         childAspectRatio: (1 / 1.2),
-        children: [
-          ...myList.map((e) => e).toList()
-        ],
+        children: [...myList.map((e) => e).toList()],
       ),
     );
   }
