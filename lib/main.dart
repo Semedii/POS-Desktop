@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_pos_app/history_screen.dart';
+import 'package:flutter_pos_app/history_page.dart';
 import 'package:flutter_pos_app/home.dart';
 
 void main() {
