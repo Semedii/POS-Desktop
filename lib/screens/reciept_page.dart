@@ -4,10 +4,11 @@ import 'package:flutter_pos_app/Data/reciept_data.dart';
 import 'package:flutter_pos_app/Data/sale_history_data.dart';
 import 'package:flutter_pos_app/Models/history.dart';
 import 'package:flutter_pos_app/Models/top_title.dart';
-import 'Data/table_number_data.dart';
-import 'Models/components.dart' as components;
-import 'Models/reciept.dart';
-import 'http_request.dart';
+import 'package:flutter_pos_app/styles/my_colors.dart';
+import '../Data/table_number_data.dart';
+import '../Models/components.dart' as components;
+import '../Models/reciept.dart';
+import '../http_request.dart';
 
 class RecieptPage extends StatefulWidget {
   RecieptPage({super.key});
@@ -72,7 +73,7 @@ class _RecieptPageState extends State<RecieptPage> {
       flex: 5,
       child: Container(
         decoration: BoxDecoration(
-          color: Color.fromARGB(255, 48, 47, 47),
+          color: MyColors.recieptColor,
           borderRadius: BorderRadius.circular(20)
         ),
           
@@ -98,7 +99,7 @@ class _RecieptPageState extends State<RecieptPage> {
               child: Container(
                 height: 120,
                 decoration: BoxDecoration(
-                  color: Color.fromARGB(255, 161, 156, 156),
+                  color: MyColors.billColor,
                   borderRadius: BorderRadius.circular(20),
                 ),
                 child: Padding(
@@ -184,8 +185,8 @@ class _RecieptPageState extends State<RecieptPage> {
                                 tableNumber: e.tableNumber,
                                 isOccupied: e.isOccupied,
                                 borderColor: e.tableNumber == activeTable
-                                    ? Colors.deepOrangeAccent
-                                    : Colors.black,
+                                    ? MyColors.selectedColor
+                                    : MyColors.itemBackGroundColor,
                                 setTable: _setTable,
                               ))
                           .toList()),

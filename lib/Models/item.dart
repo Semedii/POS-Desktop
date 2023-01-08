@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_pos_app/Data/reciept_data.dart';
 import 'package:flutter_pos_app/Models/reciept.dart';
+import 'package:flutter_pos_app/styles/my_colors.dart';
 
 class Item extends StatefulWidget {
   Item(
@@ -43,8 +44,8 @@ class _ItemState extends State<Item> {
           const SizedBox(height: 10),
           Text(
             widget.title,
-            style: const TextStyle(
-              color: Colors.white,
+            style: TextStyle(
+              color: MyColors.fontColor,
               fontWeight: FontWeight.bold,
               fontSize: 14,
             ),
@@ -55,8 +56,8 @@ class _ItemState extends State<Item> {
             children: [
               Text(
                 "\$${widget.price}",
-                style: const TextStyle(
-                  color: Colors.deepOrange,
+                style:  TextStyle(
+                  color: MyColors.priceColor,
                   fontSize: 20,
                 ),
               ),

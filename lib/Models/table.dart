@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_pos_app/styles/my_colors.dart';
 
 class Table extends StatelessWidget {
   const Table(
@@ -24,19 +25,19 @@ class Table extends StatelessWidget {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
           border: Border.all(color: borderColor, width: 2),
-          color: Color(0xff1f2029),
+          color: MyColors.itemBackGroundColor,
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
               "Table ${tableNumber}",
-              style: TextStyle(color: Colors.white),
+              style: TextStyle(color: MyColors.fontColor),
             ),
             isOccupied
                 ? Icon(
                     Icons.people,
-                    color: Colors.red,
+                    color: MyColors.selectedColor,
                     size: 12,
                   )
                 : Text(""),

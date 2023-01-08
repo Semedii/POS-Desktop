@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_pos_app/styles/my_colors.dart';
 import 'package:intl/intl.dart';
 
 
@@ -23,17 +24,17 @@ class History extends StatelessWidget {
             children: [
                Column(
                 children: [
-                  Text(DateFormat('yyyy-MM-dd').format(date), style: TextStyle(color: Colors.white),)
+                  Text(DateFormat('yyyy-MM-dd').format(date), style: TextStyle(color: Color(0xff17181f)),)
                 ],
               ),
               Column(
                 children: [
-                  Text(productName, style: TextStyle(color: Colors.white),)
+                  Text(productName, style: TextStyle(color: MyColors.fontColor),)
                 ],
               ),
               Column(
                 children: [
-                  Text("$total", style: TextStyle(color: Colors.white),),
+                  Text("$total", style: TextStyle(color: MyColors.fontColor),),
                   SizedBox(height: 10,)
                 ],
               ),

@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_pos_app/Data/sale_history_data.dart';
 import 'package:flutter_pos_app/http_request.dart';
+import 'package:flutter_pos_app/styles/my_colors.dart';
 import 'package:intl/intl.dart';
 
-import 'Models/history.dart';
+import '../Models/history.dart';
 
 class HistoryScreen extends StatefulWidget {
    HistoryScreen({
@@ -48,10 +49,10 @@ double _getTotalSalePerDay(List<History> list){
             final value = entry.value;
             return Container(
               decoration: BoxDecoration(
-                border: Border.all(color: Colors.grey)
+                border: Border.all(color: MyColors.saleBorderColor)
               ),
               child: ListTile(
-                title: Text(DateFormat('yyyy-MM-dd').format(key)),
+                title: Text(DateFormat('yyyy-MM-dd hh:mm').format(key),style: TextStyle(color: MyColors.fontColor)),
                 subtitle: Column(children: [
                   ...value.map((e) => History(quantity: e.quantity, productName: e.productName, total: e.total, date: e.date)),
               
@@ -63,7 +64,7 @@ double _getTotalSalePerDay(List<History> list){
          Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Text("Total sale      ", style: TextStyle(color: Colors.deepOrangeAccent),),
+                  Text("Total sale      ", style: TextStyle(color: MyColors.priceColor),),
                   Text(" ${_getTotalSalePerDay(SaleHistoryData.saleHistoryData.values.expand((element) => element).toList())}",  style: TextStyle(color: Colors.deepOrangeAccent),)
                 ],
               ),
@@ -75,26 +76,6 @@ double _getTotalSalePerDay(List<History> list){
                 
               }, child: Text("Save Day"))
       ],
-    );
-    // return ListView(
-    //   padding: EdgeInsets.all(20),
-    //   children: [
-    //     Row(
-    //       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-    //       children: [
-    //         Text("Product Name", style: TextStyle(color: Colors.red),),
-    //         Text("Total", style: TextStyle(color: Colors.red),),
-    //         Text("Date", style: TextStyle(color: Colors.red),)
-    //       ],
-    //     ),
-    //     SizedBox(height: 20,),
-    //     //...SaleHistoryData.saleHistoryData.map((e) => History(quantity: e.quantity, productName: e.productName, total: e.total, date: e.date,)).toList(),
-
-  
-       
-   // ]);
-    
-    
-    
+    );   
   }
 }

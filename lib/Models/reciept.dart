@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_pos_app/styles/my_colors.dart';
 
 class Reciept extends StatelessWidget {
   Reciept(
@@ -18,9 +19,9 @@ class Reciept extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text("1", style: TextStyle(color: Colors.deepOrangeAccent),),
-              Container(child: Text(dishName , style: TextStyle(color: Colors.deepOrangeAccent))),
-              Text("\$${price}", style: TextStyle(color: Colors.deepOrangeAccent),),
+              Text("1", style: TextStyle(color: MyColors.priceColor),),
+              Container(child: Text(dishName , style: TextStyle(color: MyColors.priceColor))),
+              Text("\$${price}", style: TextStyle(color: MyColors.priceColor),),
             ],
           )
         ],

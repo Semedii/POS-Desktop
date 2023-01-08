@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_pos_app/history_page.dart';
-import 'package:flutter_pos_app/home.dart';
+import 'package:flutter_pos_app/screens/history_page.dart';
+import 'package:flutter_pos_app/screens/home_page.dart';
+import 'package:flutter_pos_app/styles/my_colors.dart';
 
 void main() {
   runApp(const MyApp());
@@ -125,10 +126,10 @@ class _MainPageState extends State<MainPage> {
           ),
         ),
         const SizedBox(height: 10),
-        const Text(
+         Text(
           'POS App',
           style: TextStyle(
-            color: Colors.white,
+            color: MyColors.fontColor,
             fontSize: 8,
             fontWeight: FontWeight.bold,
           ),
@@ -163,7 +164,7 @@ class _MainPageState extends State<MainPage> {
                   const SizedBox(height: 5),
                   Text(
                     menu,
-                    style: const TextStyle(color: Colors.white, fontSize: 10),
+                    style:  TextStyle(color: MyColors.fontColor, fontSize: 10),
                   ),
                 ],
               ),

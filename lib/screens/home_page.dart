@@ -6,8 +6,9 @@ import 'package:flutter_pos_app/Dishes/beverages.dart';
 import 'package:flutter_pos_app/Dishes/breakfast.dart';
 import 'package:flutter_pos_app/Dishes/desserts.dart';
 import 'package:flutter_pos_app/Models/main_dish.dart';
-import 'package:flutter_pos_app/reciept_page.dart';
+import 'package:flutter_pos_app/screens/reciept_page.dart';
 import 'package:flutter_pos_app/Models/top_title.dart';
+import 'package:flutter_pos_app/styles/my_colors.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -44,7 +45,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.only(left: 35),
-      color: Color.fromARGB(255, 69, 67, 67),
+      color: MyColors.centerColor,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -79,10 +80,10 @@ class _HomePageState extends State<HomePage> {
         padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 24),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
-          color: const Color(0xff1f2029),
+          color: MyColors.itemBackGroundColor,
           border: isActive
-              ? Border.all(color: Colors.deepOrangeAccent, width: 3)
-              : Border.all(color: const Color(0xff1f2029), width: 3),
+              ? Border.all(color: MyColors.selectedColor, width: 3)
+              : Border.all(color: MyColors.itemBackGroundColor, width: 3),
         ),
         child: Row(
           children: [
@@ -93,9 +94,9 @@ class _HomePageState extends State<HomePage> {
             const SizedBox(width: 8),
             Text(
               title,
-              style: const TextStyle(
+              style:  TextStyle(
                 fontSize: 14,
-                color: Colors.white,
+                color: MyColors.fontColor,
                 fontWeight: FontWeight.bold,
               ),
             )

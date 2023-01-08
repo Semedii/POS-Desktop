@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_pos_app/styles/my_colors.dart';
 
 class TopTitle extends StatelessWidget {
   const TopTitle({required this.title, required this.subTitle, super.key});
@@ -18,8 +19,8 @@ class TopTitle extends StatelessWidget {
           children: [
             Text(
               title,
-              style: const TextStyle(
-                color: Colors.white,
+              style: TextStyle(
+                color: MyColors.fontColor,
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
               ),
@@ -27,8 +28,8 @@ class TopTitle extends StatelessWidget {
             const SizedBox(height: 6),
             Text(
               '$subTitle',
-              style: const TextStyle(
-                color: Colors.white54,
+              style:  TextStyle(
+                color: MyColors.subTitleColor,
                 fontSize: 10,
               ),
             ),
