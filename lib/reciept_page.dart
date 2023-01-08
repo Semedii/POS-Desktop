@@ -7,6 +7,7 @@ import 'package:flutter_pos_app/Models/top_title.dart';
 import 'Data/table_number_data.dart';
 import 'Models/components.dart' as components;
 import 'Models/reciept.dart';
+import 'http_request.dart';
 
 class RecieptPage extends StatefulWidget {
   RecieptPage({super.key});
@@ -45,6 +46,7 @@ class _RecieptPageState extends State<RecieptPage> {
   }
 
   _paid(int tableNumber) {
+    List<History> todaySale=[];
     myTableList
         .where((element) => element.tableNumber == tableNumber)
         .first
@@ -52,10 +54,16 @@ class _RecieptPageState extends State<RecieptPage> {
     List<Reciept> paidList =  RecieptData.recieptData.where((element) => element.tablenumber == tableNumber).toList();
     
     for(int i=0; i<paidList.length; i++){
-      History newSale = History(productName: paidList[i].dishName, total: _getSubTotal(), date: DateTime.now());
-      SaleHistoryData.saleHistoryData.add(newSale);
+      
+      History newSale = History(quantity: 3, productName: paidList[i].dishName, total: paidList[i].price, date: DateTime.now());
+      todaySale.add(newSale);
+      // History newSale = History(productName: paidList[i].dishName, total: paidList[i].price, date: DateTime.now());
+      // saveNewSale(productName: paidList[i].dishName, Total: paidList[i].price, Date: DateTime.now());
+       
       RecieptData.recieptData.remove(paidList[i]);
     }
+    Map<DateTime, List<History>> map = {DateTime.now(): todaySale};
+    SaleHistoryData.saleHistoryData.addAll(map);
   }
 
   @override
@@ -142,7 +150,10 @@ class _RecieptPageState extends State<RecieptPage> {
                           ),
                           ElevatedButton(
                               onPressed: () {
-                                _paid(activeTable);
+                                setState(() {
+                                  _paid(activeTable);
+                                });
+                                
                               },
                               child: Row(
                                 children: [
