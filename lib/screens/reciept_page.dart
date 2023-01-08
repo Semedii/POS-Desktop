@@ -83,7 +83,7 @@ class _RecieptPageState extends State<RecieptPage> {
                 Padding(
                   padding: EdgeInsets.only(top: 36),
                   child: TopTitle(
-                    title: 'Semedy Restaurant',
+                    title: 'Liibaan Restaurant',
                     subTitle: 'Hodan Street, 32433, LA',
                   ),
                 ),
@@ -96,78 +96,89 @@ class _RecieptPageState extends State<RecieptPage> {
             ),
             Positioned(
               bottom: 180,
-              child: Container(
-                height: 120,
-                decoration: BoxDecoration(
-                  color: MyColors.billColor,
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 20),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      Row(
-                        children: [
-                          Text("Sub Total"),
-                          SizedBox(
-                            width: 180,
-                          ),
-                          Text("\$${_getSubTotal()}"),
-                        ],
-                      ),
-                      Row(
-                        children: [
-                          Text("Tax (10%)"),
-                          SizedBox(
-                            width: 180,
-                          ),
-                          Text(
-                              "\$${(0.1 * _getSubTotal()).toStringAsFixed(2)}"),
-                        ],
-                      ),
-                      Row(
-                        children: [
-                          Text("Total"),
-                          SizedBox(
-                            width: 210,
-                          ),
-                          Text(
-                              "\$${(0.1 * _getSubTotal() + _getSubTotal()).toStringAsFixed(2)}"),
-                        ],
-                      ),
-                      Row(
-                        children: [
-                          ElevatedButton(
-                              onPressed: () {},
-                              child: Row(
-                                children: [
-                                  Icon(Icons.print),
-                                  Text("Print bills")
-                                ],
-                              )),
-                          SizedBox(
-                            width: 20,
-                          ),
-                          ElevatedButton(
-                              onPressed: () {
-                                setState(() {
-                                  _paid(activeTable);
-                                });
-                                
-                              },
-                              child: Row(
-                                children: [
-                                  Icon(
-                                    Icons.check,
-                                    color: Color.fromARGB(255, 10, 73, 12),
-                                  ),
-                                  Text("Paid")
-                                ],
-                              ))
-                        ],
-                      )
-                    ],
+              child: Card(
+                elevation: 50,
+                shape: RoundedRectangleBorder(
+    borderRadius: BorderRadius.circular(20),
+  ),
+                child: Container(
+                  height: 120,
+                  decoration: BoxDecoration(
+                    color: MyColors.billColor,
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 20),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        Row(
+                          children: [
+                            Text("Sub Total"),
+                            SizedBox(
+                              width: 180,
+                            ),
+                            Text("\$${_getSubTotal()}"),
+                          ],
+                        ),
+                        Row(
+                          children: [
+                            Text("Tax (10%)"),
+                            SizedBox(
+                              width: 180,
+                            ),
+                            Text(
+                                "\$${(0.1 * _getSubTotal()).toStringAsFixed(2)}"),
+                          ],
+                        ),
+                        Row(
+                          children: [
+                            Text("Total"),
+                            SizedBox(
+                              width: 210,
+                            ),
+                            Text(
+                                "\$${(0.1 * _getSubTotal() + _getSubTotal()).toStringAsFixed(2)}"),
+                          ],
+                        ),
+                        Row(
+                          children: [
+                            ElevatedButton(
+                              style: ButtonStyle(
+                                backgroundColor: MaterialStatePropertyAll<Color>(MyColors.recieptColor),
+                              ),
+                                onPressed: () {},
+                                child: Row(
+                                  children: [
+                                    Icon(Icons.print),
+                                    Text("Print bills")
+                                  ],
+                                )),
+                            SizedBox(
+                              width: 20,
+                            ),
+                            ElevatedButton(
+                              style: ButtonStyle(
+                                backgroundColor: MaterialStatePropertyAll<Color>(MyColors.recieptColor),
+                              ),
+                                onPressed: () {
+                                  setState(() {
+                                    _paid(activeTable);
+                                  });
+                                  
+                                },
+                                child: Row(
+                                  children: [
+                                    Icon(
+                                      Icons.check,
+                                    ),
+                                    Text("Paid")
+                                  ],
+                                ))
+                          ],
+                        )
+                      ],
+                    ),
                   ),
                 ),
               ),

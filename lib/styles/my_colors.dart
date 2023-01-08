@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class MyColors{
-  static Color sideMenuColor = Color(0xff6699CC);
+  static Color sideMenuColor = Color.fromARGB(255, 112, 111, 111);
   static Color centerColor = Color.fromARGB(255, 69, 67, 67);
   static Color itemBackGroundColor = Color(0xff1f2029);
   static Color selectedColor = Colors.deepOrangeAccent;

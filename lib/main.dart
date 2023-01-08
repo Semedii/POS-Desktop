@@ -58,7 +58,7 @@ class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 112, 111, 111),
+      backgroundColor: MyColors.sideMenuColor,
       body: Row(
         children: [
           Container(
@@ -120,14 +120,14 @@ class _MainPageState extends State<MainPage> {
             color: Colors.deepOrangeAccent,
           ),
           child: const Icon(
-            Icons.fastfood,
+            Icons.drive_file_move_rtl_rounded,
             color: Colors.white,
             size: 14,
           ),
         ),
         const SizedBox(height: 10),
          Text(
-          'POS App',
+          'Semedy',
           style: TextStyle(
             color: MyColors.fontColor,
             fontSize: 8,

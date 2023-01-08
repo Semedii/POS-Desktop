@@ -1,7 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_pos_app/Dishes/beverages.dart';
 import 'package:flutter_pos_app/Dishes/breakfast.dart';
 import 'package:flutter_pos_app/Dishes/desserts.dart';
@@ -9,6 +6,7 @@ import 'package:flutter_pos_app/Models/main_dish.dart';
 import 'package:flutter_pos_app/screens/reciept_page.dart';
 import 'package:flutter_pos_app/Models/top_title.dart';
 import 'package:flutter_pos_app/styles/my_colors.dart';
+import 'package:intl/intl.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -55,8 +53,8 @@ class _HomePageState extends State<HomePage> {
             child: Column(
               children: [
                 TopTitle(
-                  title: 'Semedy Restaurant',
-                  subTitle: '${DateTime.now()}',
+                  title: 'Liibaan Restaurant',
+                  subTitle: '${DateFormat('yyyy-MM-dd').format(DateTime.now())}',
                 ),
                 _getMenuType(),
                 _pageView()
