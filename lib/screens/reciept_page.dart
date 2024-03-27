@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_pos_app/Data/TableforData.dart';
 import 'package:flutter_pos_app/Data/reciept_data.dart';
 import 'package:flutter_pos_app/Data/sale_history_data.dart';
-import 'package:flutter_pos_app/Models/history.dart';
-import 'package:flutter_pos_app/Models/top_title.dart';
+import 'package:flutter_pos_app/component/history.dart';
+import 'package:flutter_pos_app/component/top_title.dart';
 import 'package:flutter_pos_app/styles/my_colors.dart';
 import '../Data/table_number_data.dart';
-import '../Models/components.dart' as components;
-import '../Models/reciept.dart';
+import '../component/components.dart' as components;
+import '../component/reciept.dart';
 import '../http_request.dart';
 
 class RecieptPage extends StatefulWidget {

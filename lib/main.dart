@@ -36,7 +36,7 @@ class _MainPageState extends State<MainPage> {
   _pageView() {
     switch (pageActive) {
       case 'Menu':
-        return const HomePage();
+        return  HomePage();
       case 'History':
         return HistoryScreen();
       case 'Promos':
@@ -45,7 +45,7 @@ class _MainPageState extends State<MainPage> {
         return Container();
 
       default:
-        return const HomePage();
+        return  HomePage();
     }
   }
 

@@ -1,4 +1,4 @@
-import 'package:flutter_pos_app/Models/item.dart';
+import 'package:flutter_pos_app/component/item.dart';
 
 class BreakfastData {
   static List<Item> BreakfastList = [

@@ -1,4 +1,4 @@
-import 'package:flutter_pos_app/Models/history.dart';
+import 'package:flutter_pos_app/component/history.dart';
 
 
 

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_pos_app/Data/breakfast_data.dart';
-import 'package:flutter_pos_app/Models/item.dart';
+import 'package:flutter_pos_app/component/item.dart';
 
 class Breakfast extends StatelessWidget {
   Breakfast({super.key});
