@@ -1,5 +1,4 @@
 import 'package:flutter_pos_app/Data/TableforData.dart';
-import 'package:flutter_pos_app/component/table.dart';
 
 class TableNumberData {
   static List<TableforData> tableNumberData = [

@@ -7,7 +7,7 @@ import '../component/components.dart' as components;
 import '../component/reciept.dart';
 
 class RecieptPage extends StatelessWidget {
-  RecieptPage({super.key});
+  const RecieptPage({super.key});
 
   @override
   Widget build(BuildContext context) {
