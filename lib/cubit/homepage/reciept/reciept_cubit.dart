@@ -57,4 +57,6 @@ class RecieptCubit extends Cubit<RecieptState> {
     Map<DateTime, List<History>> map = {DateTime.now(): todaySale};
     SaleHistoryData.saleHistoryData.addAll(map);
   }
+
+  
 }

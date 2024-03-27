@@ -14,6 +14,7 @@ class Item extends StatefulWidget {
   final String title;
   final double price;
   int tablenumber = 1;
+
   @override
   State<Item> createState() => _ItemState();
 }
@@ -79,6 +80,7 @@ class _ItemState extends State<Item> {
   _getDialog(
     BuildContext context,
   ) {
+     TextEditingController tableNumberController = TextEditingController();
     return showDialog(
       context: context,
       builder: (BuildContext context) {
@@ -88,20 +90,14 @@ class _ItemState extends State<Item> {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: TextField(
-                onSubmitted: (value) {
-                  setState(() {
-                    widget.tablenumber = int.parse(value);
-                  });
-                  // store the entered value in a variable
-                },
+                controller: tableNumberController,
               ),
             ),
             ElevatedButton(
               child: Text('Add'),
               onPressed: () {
-                // use the entered value
                 RecieptData.recieptData.add(Reciept(
-                    tablenumber: widget.tablenumber,
+                    tablenumber: int.parse(tableNumberController.text),
                     dishName: widget.title,
                     price: widget.price));
                 Navigator.of(context).pop();
