@@ -4,7 +4,7 @@ import 'package:flutter_pos_app/Dishes/breakfast.dart';
 import 'package:flutter_pos_app/Dishes/desserts.dart';
 import 'package:flutter_pos_app/component/main_dish.dart';
 import 'package:flutter_pos_app/component/menu_item.dart';
-import 'package:flutter_pos_app/cubit/cubit/home_page_cubit.dart';
+import 'package:flutter_pos_app/cubit/homepage/home_page_cubit.dart';
 import 'package:flutter_pos_app/screens/reciept_page.dart';
 import 'package:flutter_pos_app/component/top_title.dart';
 import 'package:flutter_pos_app/styles/my_colors.dart';
