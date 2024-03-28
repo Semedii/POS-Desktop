@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_pos_app/component/top_title.dart';
 import 'package:flutter_pos_app/cubit/homepage/reciept/reciept_cubit.dart';
+import 'package:flutter_pos_app/service_locator.dart';
 import 'package:flutter_pos_app/styles/my_colors.dart';
 import '../component/components.dart' as components;
 import '../component/reciept.dart';
@@ -12,7 +13,7 @@ class RecieptPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => RecieptCubit(),
+      create: (context) => serviceLocator.get<RecieptCubit>(),
       child: _buildBody(),
     );
   }
@@ -123,7 +124,7 @@ class RecieptPage extends StatelessWidget {
     return const Padding(
       padding: EdgeInsets.only(top: 36),
       child: TopTitle(
-        title: 'Liibaan Restaurant',
+        title: 'PASA Restaurant',
         subTitle: 'Hodan Street, 32433, LA',
       ),
     );

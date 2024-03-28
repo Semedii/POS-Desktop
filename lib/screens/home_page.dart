@@ -41,7 +41,7 @@ class HomePage extends StatelessWidget {
                 child: Column(
                   children: [
                     TopTitle(
-                      title: 'Liibaan Restaurant',
+                      title: 'PASA Restaurant',
                       subTitle: DateFormat('yyyy-MM-dd').format(DateTime.now()),
                     ),
                     _buildMenuType(context, cubit),

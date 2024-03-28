@@ -14,11 +14,20 @@ class RecieptCubit extends Cubit<RecieptState> {
             myTableList: TableNumberData.tableNumberData,
             myList: RecieptData.recieptData));
 
+  initPage(){
+    print("asdafasf ${TableNumberData.tableNumberData.first.isOccupied}");
+    emit(RecieptInitial(
+            myTableList: TableNumberData.tableNumberData,
+            myList: RecieptData.recieptData));
+  }
+
   setTable(int tablenumber) {
     var lastState = state as RecieptInitial;
     var myList = RecieptData.recieptData
         .where((element) => element.tablenumber == tablenumber)
         .toList();
+        TableforData table = lastState.myTableList.firstWhere((element) => element.tableNumber==tablenumber);
+        print("asdsfa ${table.tableNumber}, ${table.isOccupied}");
     emit(lastState.copyWith(myList: myList, activeTable: tablenumber));
   }
 
@@ -56,6 +65,7 @@ class RecieptCubit extends Cubit<RecieptState> {
     }
     Map<DateTime, List<History>> map = {DateTime.now(): todaySale};
     SaleHistoryData.saleHistoryData.addAll(map);
+    initPage();
   }
 
   

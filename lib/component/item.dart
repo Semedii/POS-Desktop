@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_pos_app/Data/reciept_data.dart';
+import 'package:flutter_pos_app/Data/table_number_data.dart';
 import 'package:flutter_pos_app/component/reciept.dart';
+import 'package:flutter_pos_app/cubit/homepage/reciept/reciept_cubit.dart';
+import 'package:flutter_pos_app/service_locator.dart';
 import 'package:flutter_pos_app/styles/my_colors.dart';
 
 class Item extends StatefulWidget {
@@ -57,7 +60,7 @@ class _ItemState extends State<Item> {
             children: [
               Text(
                 "\$${widget.price}",
-                style:  TextStyle(
+                style: TextStyle(
                   color: MyColors.priceColor,
                   fontSize: 20,
                 ),
@@ -80,7 +83,7 @@ class _ItemState extends State<Item> {
   _getDialog(
     BuildContext context,
   ) {
-     TextEditingController tableNumberController = TextEditingController();
+    TextEditingController tableNumberController = TextEditingController();
     return showDialog(
       context: context,
       builder: (BuildContext context) {
@@ -94,18 +97,24 @@ class _ItemState extends State<Item> {
               ),
             ),
             ElevatedButton(
-              child: Text('Add'),
-              onPressed: () {
-                RecieptData.recieptData.add(Reciept(
-                    tablenumber: int.parse(tableNumberController.text),
-                    dishName: widget.title,
-                    price: widget.price));
-                Navigator.of(context).pop();
-              },
+              child: const Text('Add'),
+              onPressed: () => _onAddPressed(
+                int.parse(tableNumberController.text),
+              ),
             )
           ],
         );
       },
     );
+  }
+
+  void _onAddPressed(int tableNumber) {
+    RecieptData.recieptData.add(Reciept(
+        tablenumber: tableNumber, dishName: widget.title, price: widget.price));
+    TableNumberData.tableNumberData
+        .firstWhere((element) => element.tableNumber == tableNumber)
+        .isOccupied = true;
+    serviceLocator.get<RecieptCubit>().initPage();
+    Navigator.of(context).pop();
   }
 }

@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_pos_app/screens/history_page.dart';
 import 'package:flutter_pos_app/screens/home_page.dart';
+import 'package:flutter_pos_app/service_locator.dart';
 import 'package:flutter_pos_app/styles/my_colors.dart';
 
 void main() {
+  setupDependencies();
   runApp(const MyApp());
 }
 
