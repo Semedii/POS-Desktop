@@ -10,19 +10,16 @@ part 'reciept_state.dart';
 
 class RecieptCubit extends Cubit<RecieptState> {
   RecieptCubit()
-      : super(RecieptInitial(
-            myTableList: TableNumberData.tableNumberData,
-            myList: RecieptData.recieptData));
+      : super(RecieptInitial());
 
   initPage(){
-    print("asdafasf ${TableNumberData.tableNumberData.first.isOccupied}");
-    emit(RecieptInitial(
+    emit(RecieptIdle(
             myTableList: TableNumberData.tableNumberData,
             myList: RecieptData.recieptData));
   }
 
   setTable(int tablenumber) {
-    var lastState = state as RecieptInitial;
+    var lastState = state as RecieptIdle;
     var myList = RecieptData.recieptData
         .where((element) => element.tablenumber == tablenumber)
         .toList();
@@ -30,7 +27,7 @@ class RecieptCubit extends Cubit<RecieptState> {
   }
 
   double getSubTotal() {
-    var lastState = state as RecieptInitial;
+    var lastState = state as RecieptIdle;
     double subtotal = 0;
     for (int i = 0; i < lastState.myList.length; i++) {
       subtotal += lastState.myList[i].price;
@@ -39,7 +36,7 @@ class RecieptCubit extends Cubit<RecieptState> {
   }
 
   paid() {
-    var lastState = state as RecieptInitial;
+    var lastState = state as RecieptIdle;
     List<History> todaySale = [];
     lastState.myTableList
         .where((element) => element.tableNumber == lastState.activeTable)

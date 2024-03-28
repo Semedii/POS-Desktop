@@ -12,18 +12,16 @@ class RecieptPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => serviceLocator.get<RecieptCubit>(),
-      child: _buildBody(),
-    );
+    return _buildBody();
   }
 
   BlocBuilder<RecieptCubit, RecieptState> _buildBody() {
     return BlocBuilder<RecieptCubit, RecieptState>(
+      bloc: serviceLocator.get<RecieptCubit>()..initPage(),
       builder: (context, state) {
        
-        RecieptCubit cubit = BlocProvider.of<RecieptCubit>(context);
-        state as RecieptInitial;
+        RecieptCubit cubit = serviceLocator.get<RecieptCubit>();
+        state as RecieptIdle;
         return Expanded(
           flex: 5,
           child: Container(

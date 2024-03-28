@@ -2,19 +2,21 @@ part of 'reciept_cubit.dart';
 
 class RecieptState {}
 
-class RecieptInitial extends RecieptState {
+class RecieptInitial extends RecieptState{}
+
+class RecieptIdle extends RecieptState {
   List<Reciept> myList;
   List<TableforData> myTableList;
 
   int activeTable;
-  RecieptInitial({this.activeTable = 1, required this.myList, required this.myTableList});
+  RecieptIdle({this.activeTable = 1, required this.myList, required this.myTableList});
 
-  RecieptInitial copyWith(
+  RecieptIdle copyWith(
       {int? activeTable,
       List<Reciept>? myList,
       List<TableforData>? myTableList}) {
 
-    return RecieptInitial(
+    return RecieptIdle(
         activeTable: activeTable ?? this.activeTable,
         myList: myList ?? this.myList,
         myTableList: myTableList ?? this.myTableList);
