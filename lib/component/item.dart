@@ -115,6 +115,7 @@ class _ItemState extends State<Item> {
         .firstWhere((element) => element.tableNumber == tableNumber)
         .isOccupied = true;
     serviceLocator.get<RecieptCubit>().initPage();
+    serviceLocator.get<RecieptCubit>().setTable(tableNumber);
     Navigator.of(context).pop();
   }
 }

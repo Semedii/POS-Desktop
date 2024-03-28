@@ -26,8 +26,6 @@ class RecieptCubit extends Cubit<RecieptState> {
     var myList = RecieptData.recieptData
         .where((element) => element.tablenumber == tablenumber)
         .toList();
-        TableforData table = lastState.myTableList.firstWhere((element) => element.tableNumber==tablenumber);
-        print("asdsfa ${table.tableNumber}, ${table.isOccupied}");
     emit(lastState.copyWith(myList: myList, activeTable: tablenumber));
   }
 

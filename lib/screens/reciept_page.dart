@@ -21,6 +21,7 @@ class RecieptPage extends StatelessWidget {
   BlocBuilder<RecieptCubit, RecieptState> _buildBody() {
     return BlocBuilder<RecieptCubit, RecieptState>(
       builder: (context, state) {
+       
         RecieptCubit cubit = BlocProvider.of<RecieptCubit>(context);
         state as RecieptInitial;
         return Expanded(
