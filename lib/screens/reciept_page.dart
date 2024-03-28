@@ -77,13 +77,14 @@ class RecieptPage extends StatelessWidget {
         ),
         child: Container(
           height: 120,
+          width: 300,
           decoration: _getRecieptInfoDecoration(),
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                _priceInfo("Sub Total", "\$${cubit.getSubTotal()}"),
+                _priceInfo("Sub Total", "\$${cubit.getSubTotal().toStringAsFixed(2)}"),
                 _priceInfo("Tax (10%)",
                     "\$${(0.1 * cubit.getSubTotal()).toStringAsFixed(2)}"),
                 _priceInfo("Total",
@@ -138,11 +139,10 @@ class RecieptPage extends StatelessWidget {
 
   Row _priceInfo(String title, String price) {
     return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text(title),
-        const SizedBox(
-          width: 180,
-        ),
+        
         Text(price),
       ],
     );
